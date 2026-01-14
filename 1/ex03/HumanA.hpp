@@ -1,8 +1,10 @@
-class	HumanA
+class HumanA
 {
 	private:
-		std::string name;
-		std::string weapon;
+		const std::string m_name;
+		Weapon &m_weapon;
 	public:
-		HumanA(std::string weapon_name);
+		HumanA(const std::string &name, Weapon &weapon);
+		const std::string getWeaponName();
+		void	attack();
 };

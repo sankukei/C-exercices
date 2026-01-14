@@ -1,6 +1,15 @@
 #include <includes.hpp>
 
-HumanA::HumanA(std::string weapon_name)
+HumanA::HumanA(const std::string &name, Weapon &weapon) : m_name(name) , m_weapon(weapon)
 {
-	weapon = weapon_name;
+}
+
+const std::string HumanA::getWeaponName()
+{
+	return (m_weapon);
+}
+
+void	HumanA::attack()
+{
+	std::cout << m_name << " attacks with their " << m_weapon << std::endl;
 }

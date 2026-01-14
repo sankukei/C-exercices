@@ -1,8 +1,16 @@
-class Weapon
+#include "includes.hpp"
+
+Weapon::Weapon(std::string str)
 {
-	private:
-		std::string type;
-	public:
-		void	setType(std::string);
-		std::string& getType();
+	this->m_type = str;
+}
+
+void	Weapon::setType(std::string type)
+{
+	this->m_type = type;
+}
+
+std::string&	Weapon::getType()
+{
+	return (this->m_type);
 }
