@@ -20,7 +20,7 @@ clean:
 	rm -f ${OBJS} 
 
 fclean: clean;
-	rm -f weapon
+	rm -f sed_v2
 
 re: fclean all
 		
