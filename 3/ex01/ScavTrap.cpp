@@ -47,7 +47,7 @@ void	ScavTrap::guardGate()
 {
 	if (this->_hitPoint <= 0)
 	{
-		std::cout << "ScavTrap " << this->_name << "is dead and cant use gate keeper mode" << std::endl;
+		std::cout << "ScavTrap " << this->_name << " is dead and cant use gate keeper mode :(" << std::endl;
 		return ;
 	}
 	std::cout << "ScavTrap " << this->_name << " has entered gater keeper mode" << std::endl;
