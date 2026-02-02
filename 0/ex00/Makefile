@@ -1,23 +1,27 @@
-OBJS	= megaphone.o
-SOURCE	= megaphone.cpp
-HEADER	= 
-OUT	= megaphone
-FLAGS	= -g -c -Wall -Wextra -Werror
-LFLAGS	= 
-CC	= c++
+NAME = phonebook
 
-all:	megaphone
+COMP = c++
 
-megaphone: $(OBJS)
-	$(CC) -g $(OBJS) -o $(OUT) $(LFLAGS)
+FLAGS = -Wall -Wextra -Werror -std=c++98 -I ./
 
-megaphone.o: megaphone.cpp
-	$(CC) $(FLAGS) megaphone.cpp
+SRC =	megaphone.cpp \
+
+OBJS = ${SRC:.cpp=.o}
+
+%.o: %.cpp
+	$(COMP) $(FLAGS) -c $< -o $@
+
+${NAME}: ${OBJS}
+	$(COMP) ${OBJS} ${FLAGS} -o $(NAME)
+
+all: ${NAME}
 
 clean:
-	rm -f $(OBJS)
+	rm -f ${OBJS} 
 
-fclean:
-	rm -f $(OBJS) $(OUT)
+fclean: clean;
+	rm -f phonebook
 
 re: fclean all
+		
+.PHONY: all, clean, fclean, re

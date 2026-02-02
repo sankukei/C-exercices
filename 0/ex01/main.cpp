@@ -77,6 +77,11 @@ int	PhoneBook::searchContact(std::string str)
 		std::cout << "only positive integers between 0 - 7" << std::endl;
 	else if (index < 0 || index > 7)
 		std::cout << "index out of range" << std::endl;
+	else if (contacts[index].getLastName().length() == 0)
+	{
+		std::cout << "(Empty)" << std::endl;
+		return (1);
+	}
 	else
 	{
 		std::cout << "First name: " << contacts[index].getFirstName() << std::endl;
