@@ -16,7 +16,8 @@ int	main(int ac, char *av[])
 	std::cout << "3) [EXIT] to exit program" << std::endl;
 	while (true)
 	{
-		getline(std::cin, str);
+		if (!getline(std::cin, str))
+			break ;
 		if (str == "ADD")
 			phonebook.addContact();
 		else if (str == "SEARCH")
@@ -69,7 +70,8 @@ int	PhoneBook::searchContact(std::string str)
 	}
 	std::cout << std::endl << "Enter index to display more info :" << std::endl;
 	std::string	user_index;
-	getline(std::cin, user_index);
+	if (!getline(std::cin, user_index))
+		return (0);
 	int	index = atoi(user_index.c_str());
 	if (!validate_string(user_index))
 		std::cout << "only positive integers between 0 - 7" << std::endl;
@@ -114,7 +116,8 @@ void	PhoneBook::addContact()
 	contacts[index].setDarkestSecret(str);
 
 	currentIndex++;
-	contact_number++;
+	if (contact_number < 8)
+		contact_number++;
 	std::cout << contact_number << std::endl;
 	
 }
