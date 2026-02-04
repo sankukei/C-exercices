@@ -3,12 +3,19 @@
 int	main(int ac, char **av)
 {
 	if (ac != 4)
-		return 0;
+		return 1;
+	std::string s1 = av[2];
+	std::string s2 = av[3];
+	if (s1.empty())
+	{
+		std::cout << "Patern 1 cannot be empty" << std::endl;
+		return 1;
+	}
 	std::string str;
 	std::ifstream fd(av[1]);
-	if (fd.fail())
+	if (!fd.is_open())
 	{
-		std::cout << "File not found" << std::endl;
+		std::cout << "File not found or cannot be opened" << std::endl;
 		return 1;
 	}
 
@@ -20,16 +27,12 @@ int	main(int ac, char **av)
 	buff << fd.rdbuf();
 	std::string file = buff.str();
 
-	std::string s1 = av[2];
-	std::string s2 = av[3];
-
-	if (s1.length() == 0 || s2.length())
+	if (s1 == s2)
 	{
 		out << file;
 		return (0);
 	}
-
-	int pos = 0;
+	size_t pos = 0;
 	std::string tmp;
 	size_t occur = file.find(s1, pos);
 	while (occur != std::string::npos)
@@ -39,7 +42,6 @@ int	main(int ac, char **av)
 		pos = occur + s1.length();
 		occur = file.find(s1, pos);
 	}
-
 	tmp += file.substr(pos);
 	out << tmp;
 	fd.close();
