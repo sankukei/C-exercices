@@ -24,12 +24,9 @@ Zombie*	newZombie(std::string name)
 
 void	randomChump(std::string name)
 {
-	//Zombie	*freshCreatedRandom = newZombie(name);
-	//freshCreatedRandom->announce();
 	Zombie n;
 	n.nameZombie(name);
 	n.announce();
-	(void)name;
 }
 
 Zombie::~Zombie()
