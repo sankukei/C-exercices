@@ -1,5 +1,13 @@
 #include "includes.hpp"
 
+FragTrap::FragTrap() : ClapTrap("Default")
+{
+	this->_hitPoint = 100;
+	this->_energyPoint = 100;
+	this->_attackDamage = 30;
+	std::cout << "FragTrap " << _name << " created" << std::endl;
+}
+
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
 	this->_hitPoint = 100;

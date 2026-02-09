@@ -10,8 +10,6 @@ int main()
     assigned = clap;
 
     std::cout << "\n--- ACTION TESTS (CLP-42) ---" << std::endl;
-    // Test : Attaques successives jusqu'à épuisement de l'énergie
-    // CLP-42 commence avec 10 points d'énergie
     for (int i = 0; i < 11; i++) {
         std::cout << "[" << i << "] ";
         clap.attack("un pauvre Skag");
@@ -20,14 +18,9 @@ int main()
     std::cout << "\n--- DAMAGE & REPAIR TESTS ---" << std::endl;
     ClapTrap target("Target-Bot");
     
-    // Test : Réparation sans énergie (si on en a plus)
     target.beRepaired(5);
-
-    // Test : Prendre des dégâts massifs
     target.takeDamage(5);
-    target.takeDamage(20); // Doit tomber à 0 et ne pas devenir négatif
-    
-    // Test : Action alors que mort
+    target.takeDamage(20);
     target.attack("quelqu'un");
     target.beRepaired(10);
     target.takeDamage(1);
