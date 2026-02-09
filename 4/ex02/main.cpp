@@ -4,11 +4,9 @@
 
 int main()
 {
-// Ce code NE DOIT PAS compiler
     // Animal test; 
     // Animal* meta = new Animal();
 
-    // Ce code DOIT compiler
     Animal* j = new Dog();
     Animal* i = new Cat();
 
