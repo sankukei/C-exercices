@@ -1,6 +1,9 @@
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
-# include "includes.hpp"
+
+#include <string>
+#include <iomanip>
+#include <iostream>
 
 class Brain
 {

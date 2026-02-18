@@ -1,5 +1,6 @@
-#include "includes.hpp"
 #include "Brain.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 #include <iostream>
 
 int main()

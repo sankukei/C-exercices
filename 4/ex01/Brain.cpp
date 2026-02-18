@@ -1,4 +1,6 @@
 #include "Brain.hpp"
+#include <iomanip>
+#include <iostream>
 
 Brain::Brain()
 {
