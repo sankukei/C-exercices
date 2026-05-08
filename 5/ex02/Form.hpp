@@ -24,10 +24,11 @@ class Form
 		int	validateValue(int val);
 		void	beSigned(const Bureaucrat & target);
 
-		std::string	getName(void) const;
+		virtual	std::string	getName(void) const = 0;
 		int		getMinToSign(void) const;
 		int		getMinToExec(void) const;
 		int		getIsSigned(void) const;
+
 
 		class	GradeTooLowException : public std::exception
 		{
