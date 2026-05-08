@@ -1,17 +1,17 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form() : _name("Default"), _isSigned(0), _minToSign(0), _minToExec(0)
+AForm::AForm() : _name("Default"), _isSigned(0), _minToSign(0), _minToExec(0)
 {
 	std::cout << "Default instance\n";
 }
 
-Form::Form(const std::string name, const int minS, const int minE) : _name(name), _isSigned(0),
+AForm::AForm(const std::string name, const int minS, const int minE) : _name(name), _isSigned(0),
 	_minToSign(validateValue(minS)), _minToExec(validateValue(minE))
 {
 	std::cout << "Named instance\n";
 }
 
-Form& Form::operator=(const Form &rhs)
+AForm& AForm::operator=(const AForm &rhs)
 {
 	if (this != &rhs)
 	{
@@ -20,21 +20,21 @@ Form& Form::operator=(const Form &rhs)
 	return *this;
 }
 
-Form::~Form()
+AForm::~AForm()
 {
 	std::cout << "Default destructor\n";
 }
 
-int Form::validateValue(int val)
+int AForm::validateValue(int val)
 {
 	if (val < 1)
-		throw Form::GradeTooHighException();
+		throw AForm::GradeTooHighException();
 	if (val > 150)
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	return val;
 }
 
-void	Form::beSigned(const Bureaucrat & target)
+void	AForm::beSigned(const Bureaucrat & target)
 {
 	if (this->_minToSign >= target.getGrade())
 	{
@@ -43,31 +43,31 @@ void	Form::beSigned(const Bureaucrat & target)
 	}
 	else {
 		std::cerr << target.getName() << " counldn't sign " << this->getName() << " because ";
-		throw Form::GradeTooLowException();
+		throw AForm::GradeTooLowException();
 	}
 }
 
-std::string	Form::getName(void) const
+std::string	AForm::getName(void) const
 {
 	return this->_name;
 }
 
-int	Form::getMinToSign(void) const
+int	AForm::getMinToSign(void) const
 {
 	return this->_minToSign;
 }
 
-int	Form::getMinToExec(void) const
+int	AForm::getMinToExec(void) const
 {
 	return this->_minToExec;
 }
 
-int	Form::getIsSigned(void) const
+int	AForm::getIsSigned(void) const
 {
 	return this->_isSigned;
 }
 
-std::ostream & operator<<(std::ostream &flux, const Form &src)
+std::ostream & operator<<(std::ostream &flux, const AForm &src)
 {
 	flux << src.getName() << ":" << std::endl <<
 		"	Form minimun to sign " << src.getMinToSign() << std::endl <<

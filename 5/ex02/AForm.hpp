@@ -7,7 +7,7 @@
 # include <iostream>
 # include <exception>
 
-class Form
+class AForm
 {
 	private:
 		const std::string _name;
@@ -15,11 +15,11 @@ class Form
 		const int _minToSign;
 		const int _minToExec;
 	public:
-		Form();
-		Form(const std::string name, const int minS, const int minE);
-		Form(const Form &src);
-		Form& operator=(const Form &rhs);
-		~Form();
+		AForm();
+		AForm(const std::string name, const int minS, const int minE);
+		AForm(const AForm &src);
+		AForm& operator=(const AForm &rhs);
+		~AForm();
 
 		int	validateValue(int val);
 		void	beSigned(const Bureaucrat & target);
@@ -47,5 +47,5 @@ class Form
 		};
 };
 
-std::ostream & operator<<(std::ostream &flux, const Form &src);
+std::ostream & operator<<(std::ostream &flux, const AForm &src);
 #endif

@@ -6,7 +6,8 @@ FLAGS = -Wall -Wextra -Werror -std=c++98 -I ./
 
 SRC =	main.cpp \
 	Bureaucrat.cpp \
-	Form.cpp \
+	AForm.cpp \
+	ShrubberyCreationForm.cpp \
 
 OBJS = ${SRC:.cpp=.o}
 
