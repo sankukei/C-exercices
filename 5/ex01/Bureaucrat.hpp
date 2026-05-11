@@ -5,6 +5,8 @@
 # include <iostream>
 # include <exception>
 
+class Form;
+
 class Bureaucrat
 {
 public:
@@ -20,6 +22,7 @@ public:
 
 	void		incrementGrade(void);
 	void		lowerGrade(void);
+	void		signForm(Form &form);
 
 	class		GradeTooLowException : public std::exception
 	{

@@ -27,7 +27,7 @@ class Form
 		std::string	getName(void) const;
 		int		getMinToSign(void) const;
 		int		getMinToExec(void) const;
-		int		getIsSigned(void) const;
+		bool	getIsSigned(void) const;
 
 		class	GradeTooLowException : public std::exception
 		{

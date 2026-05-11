@@ -2,13 +2,19 @@
 
 int	main(void)
 {
-
-	Form test("Dragonic for dummys", 1, 23);
-	std::cout << test << std::endl;
 	try {
+		Bureaucrat bob("Bob", 100);
+		Bureaucrat boss("Boss", 1);
 		Form a("Formulaire de fou", 50, 50);
-		Bureaucrat b("bob", 100);
-		a.beSigned(b);
+
+		std::cout << bob << std::endl;
+		std::cout << boss << std::endl;
+		std::cout << a << std::endl;
+
+		bob.signForm(a);
+		boss.signForm(a);
+		
+		std::cout << a << std::endl;
 	}
 	catch (const std::exception & e) {
 		std::cerr << e.what() << std::endl;

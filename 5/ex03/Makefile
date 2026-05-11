@@ -1,4 +1,4 @@
-NAME = Form
+NAME = Intern
 
 COMP = c++
 
@@ -10,6 +10,7 @@ SRC =	main.cpp \
 	ShrubberyCreationForm.cpp \
 	RobotomyRequestForm.cpp \
 	PresidentialPardonForm.cpp \
+	Intern.cpp \
 
 OBJS = ${SRC:.cpp=.o}
 

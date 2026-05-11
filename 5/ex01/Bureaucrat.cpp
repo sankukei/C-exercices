@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 Bureaucrat::Bureaucrat() : _name("default"), _grade(150)
 {
@@ -8,16 +9,16 @@ Bureaucrat::Bureaucrat() : _name("default"), _grade(150)
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name)
 {
 	if (grade < 1)
-		throw Bureaucrat::GradeTooLowException();
-	if (grade > 150)
 		throw Bureaucrat::GradeTooHighException();
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
 	this->_grade = grade;
+	std::cout << "Bureaucrat " << _name << " constructor called\n";
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &src)
+Bureaucrat::Bureaucrat(const Bureaucrat &src) : _name(src._name), _grade(src._grade)
 {
-	std::cout << "Bureaucrat copy constructor called\n";
-	*this = src;
+	std::cout << "Bureaucrat " << _name << " copy constructor called\n";
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &rhs)
@@ -27,9 +28,22 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &rhs)
 	return *this;
 }
 
+void Bureaucrat::signForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << "." << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << this->_name << " couldn't sign " << form.getName() << " because " << e.what() << "." << std::endl;
+	}
+}
+
 std::ostream & operator<<(std::ostream &flux, const Bureaucrat &src)
 {
-	flux << src.getName() << " Bureaucrat grade " << src.getGrade();
+	flux << src.getName() << ", bureaucrat grade " << src.getGrade() << ".";
 	return flux;
 }
 
