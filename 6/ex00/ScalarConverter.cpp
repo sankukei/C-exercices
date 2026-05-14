@@ -31,7 +31,7 @@ void ScalarConverter::convert(const std::string &input)
 		} else if (input == "-inf" || input == "-inff") {
 			std::cout << "float: -inff\ndouble: -inf\n";
 		} else {
-			std::cout << "float: inff\n;double: inf\n";
+			std::cout << "float: inff\ndouble: inf\n";
 		}
 		return;
 	}

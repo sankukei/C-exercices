@@ -4,9 +4,7 @@
 class Base
 {
 	public:
-	
-	private:
-		~Base();
+		virtual	~Base() {}
 
 };
 
