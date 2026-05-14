@@ -5,6 +5,8 @@
 # include <iomanip>
 # include <iostream>
 # include <cctype>
+# include <cstdlib>
+# include <climits>
 
 class ScalarConverter
 {
